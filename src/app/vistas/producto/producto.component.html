@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class="container">
+    
+        <br><h3>Lista de Productos</h3><br>
+        <button type="button" class="btn btn-dark" (click) = "crearProducto()">Adicionar Producto</button><br><br>
+        <table class="table table-hover">
+              <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Valor Unitario</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos">
+                    <td>{{ producto.Producto}}</td>
+                    <td>{{ producto.ValorUnitario | currency : 'USD' : 'symbol' : '1.0-0'}}</td>
+                    <td style="color: blue;cursor: pointer" (click) = "editarProducto(producto.IdProducto)"><a>Editar</a></td>
+                </tr>
+            </tbody>
+        </table>
+  
+ 
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,63 @@
+<app-header></app-header>
+<div class="container">
+    <br>
+    <h3>Lista de Clientes</h3><br>
+    <button type="button" class="btn btn-dark" (click)="crearPersona()">Adicionar Cliente</button><br><br>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Cedula</th>
+                <th scope="col">Telefono</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let persona of personas">
+                <td>{{ persona.Nombre}}</td>
+                <td>{{ persona.Apellido}}</td>
+                <td>{{ persona.Cedula}}</td>
+                <td>{{ persona.Telefono}}</td>
+                <td style="color: blue;cursor: pointer" (click)="editarPersona(persona.IdPersona)"><a>Editar</a></td>
+                <td style="color: blue;cursor: pointer" (click)="CrearCompra(persona.IdPersona)"><a>Realizar
+                        Compra</a></td>
+                <td style="color: blue;cursor: pointer" (click)="VerCompra(persona.IdPersona,mymodal)"><a>Compras
+                        Realizadas</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<ng-template #mymodal let-modal>
+    <div class="modal-content" style="width: 600px;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Compras Realizadas</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">X</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Cantidad Producto</th>
+                        <th scope="col">Valor Unitario</th>
+                        <th scope="col">ValorTotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let venta of dataVentas">
+                        <td>{{ venta.Producto}}</td>
+                        <td>{{ venta.CantidadProducto}}</td>
+                        <td>{{ venta.ValorUnitario | currency : 'USD' : 'symbol' : '1.0-0' }}</td>
+                        <td>{{ venta.ValorTotal | currency : 'USD' : 'symbol' : '1.0-0'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</ng-template>
+<app-footer></app-footer>

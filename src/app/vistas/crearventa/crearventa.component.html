@@ -1,0 +1,27 @@
+<app-header></app-header>
+<br>
+<div class="container">
+    <form [formGroup]="crearventa"><br><br>
+        <div class="form-group row">
+            <div class="col">
+                <label>Producto</label>
+                <select class="form-control" formControlName="IdProducto">
+                    <option  selected >Seleccione algun Producto</option>
+                    <option *ngFor="let producto of productos" [ngValue]="producto.IdProducto">{{producto.Producto}}</option>
+                </select>
+            </div>
+            <div class="col">
+                <label>Cantidad Producto</label>
+                <div class="col-md-12 col-12">
+                    <button type="button" class="btn btn-secondary" (click)=" Contador( -1 ) "><b>-</b></button>
+                    <span > {{ numero }} </span>
+                    <button type="button" class="btn btn-dark" (click)=" Contador( +1 ) "><b>+</b></button>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <button class="btn btn-primary" (click)="onVenta(crearventa.value)" >Realizar Compra</button>
+        <button class="btn btn-danger" style="margin-left: 20px;" (click)="onVolver()">Regresar</button>
+    </form>
+</div>
+<app-footer></app-footer>

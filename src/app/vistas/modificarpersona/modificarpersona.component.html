@@ -1,0 +1,30 @@
+<app-header></app-header>
+<br>
+<div class="container">
+    <form [formGroup]="editarPer" (ngSubmit)="onPersona(editarPer.value)"><br><br>
+        <div class="form-group row">
+            <div class="col">
+                <label>Nombre</label>
+                <input type="text" class="form-control" placeholder="Nombre Cliente" formControlName="Nombre">
+            </div>
+            <div class="col">
+                <label>Apellido</label>
+                <input type="text" class="form-control" placeholder="Apellido Cliente" formControlName="Apellido">
+            </div>
+        </div><br><br>
+        <div class="form-group row">
+            <div class="col">
+                <label>Cedula</label>
+                <input type="number" class="form-control" placeholder="Cedula Cliente" formControlName="Cedula">
+            </div>
+            <div class="col">
+                <label>Telefono</label>
+                <input type="number" class="form-control" placeholder="Telefono Cliente" formControlName="Telefono">
+            </div>
+        </div>
+        <br><br>
+        <button class="btn btn-primary" (click)="onPersona(editarPer.value)">Modificar Cliente</button>
+        <button class="btn btn-danger" style="margin-left: 20px;" (click)="onVolver()">Regresar</button>
+    </form>
+</div>
+<app-footer></app-footer>

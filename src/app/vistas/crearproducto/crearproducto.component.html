@@ -1,0 +1,20 @@
+<app-header></app-header>
+<br>
+<div class="container">
+    <form [formGroup]="CrearPro" ><br><br>
+        <div class="form-group row">
+            <div class="col">
+                <label>Nombre Producto</label>
+                <input type="text" class="form-control" placeholder="Nombre Producto" formControlName="Producto" required>
+            </div>
+            <div class="col">
+                <label>Valor Unitario</label>
+                <input type="number" class="form-control" placeholder="Valor Unitario" formControlName="ValorUnitario" required>
+            </div>
+        </div>
+        <br><br>
+        <button class="btn btn-primary"(click)="onProducto(CrearPro.value)">Crear Producto</button>
+        <button class="btn btn-danger" style="margin-left: 20px;" (click)="onVolver()">Regresar</button>
+    </form>
+</div>
+<app-footer></app-footer>
